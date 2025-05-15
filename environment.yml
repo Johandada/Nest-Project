@@ -1,0 +1,13 @@
+name: sam-nestkast
+channels:
+  - conda-forge
+  - defaults
+  - https://repo.anaconda.com/pkgs/main
+  - https://repo.anaconda.com/pkgs/r
+  - https://repo.anaconda.com/pkgs/msys2
+dependencies:
+  - python=3.10
+  - pip:
+    - segment-anything
+    - torchvision
+prefix: C:\Users\Khaled\miniconda3\envs\sam-nestkast

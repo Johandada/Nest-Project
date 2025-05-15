@@ -1,0 +1,8 @@
+# Negeer mappen met data-afbeeldingen en output
+Data_nest_uitgesneden/
+Data_nest_uitgesneden_zonder_achtergrond/
+Data_nest_output/
+
+# Negeer het .pth bestand met de gewichten van het SAM-model
+models/
+*.pth
