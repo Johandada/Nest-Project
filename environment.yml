@@ -7,6 +7,9 @@ channels:
   - https://repo.anaconda.com/pkgs/msys2
 dependencies:
   - python=3.10
+  - ipykernel=6.29.4
+  - matplotlib=3.7
+  - numpy=1.24
   - pip:
     - segment-anything
     - torchvision
