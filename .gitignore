@@ -1,7 +1,10 @@
 # Negeer mappen met data-afbeeldingen en output
 Data_nest_uitgesneden/
 Data_nest_uitgesneden_zonder_achtergrond/
-Data_nest_output/
+Data_nest_uitgesneden_output/
+Resultaten_met_Contouren/
+*.jpg
+.ipynb_checkpoints/
 
 # Negeer het .pth bestand met de gewichten van het SAM-model
 models/
