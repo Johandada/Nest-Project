@@ -10,4 +10,6 @@ dependencies:
   - pip:
     - segment-anything
     - torchvision
+    - opencv
+    - matplotlib
 prefix: C:\Users\Khaled\miniconda3\envs\sam-nestkast
