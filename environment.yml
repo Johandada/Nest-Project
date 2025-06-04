@@ -2,14 +2,13 @@ name: sam-nestkast
 channels:
   - conda-forge
   - defaults
-  - https://repo.anaconda.com/pkgs/main
-  - https://repo.anaconda.com/pkgs/r
-  - https://repo.anaconda.com/pkgs/msys2
 dependencies:
   - python=3.10
+  - pip=23.2
   - pip:
-    - segment-anything
-    - torchvision
-    - opencv-python
-    - matplotlib
-prefix: C:\Users\Khaled\miniconda3\envs\sam-nestkast
+      - segment-anything
+      - torchvision==0.16.*
+      - torch==2.1.*           # Belangrijk voor GPU!
+      - torchaudio==2.1.*
+      - opencv-python==4.8.*
+      - matplotlib==3.8.*
