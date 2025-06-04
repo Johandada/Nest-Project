@@ -12,3 +12,5 @@ dependencies:
       - torchaudio==2.1.*
       - opencv-python==4.8.*
       - matplotlib==3.8.*
+      - ipykernel==6.25.*
+      - jupyterlab==4.0.*
