@@ -24,18 +24,13 @@ Gebruik het meegeleverde `environment.yml`:
 
 ```bash
 conda env create -f environment.yml
-conda activate environment
+conda activate sam-nestkast
 ```
 
 ### **2. Segment Anything installeren**
 
 We gebruiken het model van Meta AI: [facebookresearch/segment-anything](https://github.com/facebookresearch/segment-anything)
 
-```bash
-git clone https://github.com/facebookresearch/segment-anything.git
-cd segment-anything
-pip install -e .
-```
 
 ### **3. Model downloaden**
 
@@ -52,7 +47,7 @@ wget https://dl.fbaipublicfiles.com/segment_anything/sam_vit_h_4b8939.pth
 ### **1. Activeer de omgeving:**
 
 ```bash
-conda activate environment
+conda activate sam-nestkast
 ```
 
 ### **2. Start het notebook:**
