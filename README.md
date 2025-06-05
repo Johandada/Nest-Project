@@ -1,4 +1,4 @@
-Nestkastdetectie met AI
+- Nestkastdetectie met AI
 
 Automatische herkenning van geschikte nestkastlocaties op architectonische geveltekeningen met behulp van beeldherkenning (OpenCV + Segment Anything + PyTorch).
 
