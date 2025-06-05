@@ -1,78 +1,91 @@
-*Nestkastdetectie met AI*
+#  **Nestkastdetectie met AI**
 
-Automatische herkenning van geschikte nestkastlocaties op architectonische geveltekeningen met behulp van beeldherkenning (OpenCV + Segment Anything + PyTorch).
+Automatische herkenning van geschikte nestkastlocaties op architectonische geveltekeningen met behulp van beeldherkenning (OpenCV + Segment Anything).
 
-Projectbeschrijving
+---
 
-Door renovatie of sloop verdwijnen natuurlijke nestplekken voor vogels zoals de huismus, gierzwaluw en gewone dwergvleermuis. Dit project ontwikkelt een AI-model dat automatisch geschikte posities voor nestkasten detecteert op gevelaanzichten.
+##  **Projectbeschrijving**
 
-Samenwerking met: Nest NatuurinclusiefStudenten: Johan Dada, Mustafa El Yusuf, Ali Albonaser, Khalid AlkahloutBegeleiding: Ingrid Sloots (Nest)
+Door renovatie of sloop verdwijnen natuurlijke nestplekken voor vogels zoals de **huismus**, **gierzwaluw** en **gewone dwergvleermuis**. Dit project ontwikkelt een AI-model dat **automatisch geschikte posities voor nestkasten** detecteert op gevelaanzichten.
 
-Installatie
 
-Voorwaarden
+---
 
-Python 3.10
+##  **Installatie**
 
-Miniconda of Anaconda
+### **Voorwaarden**
 
-1. Conda-omgeving instellen
+* Python **3.10**
+* **Miniconda** of **Anaconda**
 
-Gebruik het meegeleverde environment.yml:
+### **1. Conda-omgeving instellen**
 
+Gebruik het meegeleverde `environment.yml`:
+
+```bash
 conda env create -f environment.yml
 conda activate environment
+```
 
-2. Segment Anything installeren
+### **2. Segment Anything installeren**
 
-We gebruiken het model van Meta AI: facebookresearch/segment-anything
+We gebruiken het model van Meta AI: [facebookresearch/segment-anything](https://github.com/facebookresearch/segment-anything)
 
+```bash
 git clone https://github.com/facebookresearch/segment-anything.git
 cd segment-anything
 pip install -e .
+```
 
-3. Model downloaden
+### **3. Model downloaden**
 
 Download het voorgetrainde model en plaats het in de hoofdmap van het project:
 
+```bash
 wget https://dl.fbaipublicfiles.com/segment_anything/sam_vit_h_4b8939.pth
+```
 
-Uitvoeren van de code
+---
 
-Activeer de omgeving:
+##  **Uitvoeren van de code**
 
+### **1. Activeer de omgeving:**
+
+```bash
 conda activate environment
+```
 
-Start het notebook:
+### **2. Start het notebook:**
 
+```bash
 jupyter notebook sam.ipynb
+```
 
-Stap voor stap:
+### **3. Stap voor stap:**
 
-Laadt een geveltekening (Data_nest_uitgesneden/)
+* Laadt een geveltekening (`Data_nest_uitgesneden/`)
+* Converteert deze naar RGB
+* Genereert invoerpunten rond het midden
+* Roept het Segment Anything model aan
+* Toont de voorspelde maskers + nestkastlocaties
 
-Converteert deze naar RGB
+---
 
-Genereert invoerpunten rond het midden
+##  **Projectstructuur**
 
-Roept het Segment Anything model aan
-
-Toont de voorspelde maskers + nestkastlocaties
-
-
-
-Projectstructuur
-
+```
 Nest-Project/
 ├── sam.ipynb                     # Hoofdanalyse notebook
 ├── environment.yml              # Conda dependencies
 ├── sam_vit_h_4b8939.pth         # Segment Anything model
-├── README.md                    
+├── README.md                    # Projectdocumentatie
+```
 
-Licentie
+---
 
-Dit project is ontwikkeld als onderdeel van een onderzoeksproject aan de Hogeschool Utrecht.
-Gebruik van tekeningen/data van Nest Natuurinclusief is alleen toegestaan binnen het project en niet voor externe verspreiding.
+##  **Licentie**
 
+Dit project is ontwikkeld als onderdeel van een onderzoeksproject aan de **Hogeschool Utrecht**.
+Gebruik van tekeningen/data van **Nest Natuurinclusief** is alleen toegestaan binnen het project en niet voor externe verspreiding.
 
-
+---
