@@ -70,7 +70,8 @@ jupyter notebook sam.ipynb
 
 ```
 Nest-Project/
-├── sam.ipynb                     # Hoofdanalyse notebook
+├── Data_nest_uitgesneden        # De data
+├── sam.ipynb                    # Hoofdanalyse notebook
 ├── environment.yml              # Conda dependencies
 ├── sam_vit_h_4b8939.pth         # Segment Anything model
 ├── README.md                    # Projectdocumentatie
