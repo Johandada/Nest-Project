@@ -4,10 +4,10 @@ Data_nest_uitgesneden_zonder_achtergrond/
 Data_nest_output/
 
 # Negeer het .pth bestand met de gewichten van het SAM-model
-models/
 *.pth
-
+*.yml
 
 # Negeer waar ik momenteel aan het werk ben
 detecteren_zonder_toevoegingen.ipynb
 testen.ipynb
+sam.ipynb
