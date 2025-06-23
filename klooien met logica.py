@@ -3,10 +3,11 @@ import numpy as np
 from PIL import Image
 from ultralytics import YOLO
 import matplotlib.pyplot as plt
-from matplotlib.offsetbox import OffsetImage, AnnotationBbox
+from scipy.ndimage import distance_transform_edt, binary_erosion
+from matplotlib.offsetbox import OffsetImage, AnnotationBbox  # ← toegevoegd voor iconen
 
-# 📂 Paden
-IMAGE_PATH = r"C:\Users\moham\Nest-Project\nest_data\test\images\rijwoning-6-_png.rf.a677db79b71b58093105ad296ef13e93.jpg"
+# 📂 Pad instellingen
+IMAGE_PATH = r"C:\Users\moham\Nest-Project\nest_data\test\images\rijwoning-10-_png.rf.a825cfca1b641a01134dd76718b426d6.jpg"
 MODEL_PATH = r"C:\Users\moham\Nest-Project\yolov8n_nest_50epochs.pt"
 
 # 📐 Schaal
@@ -14,220 +15,105 @@ PIXEL_SCALE = 0.0175  # meter per pixel
 
 # 🐦 Nestregels
 rules = {
-    'huismus':     {'min_h': 3, 'max_h': 10, 'aantal': 5},
-    'gierzwaluw':  {'min_h': 6, 'max_h': 40, 'aantal': 5},
-    'vleermuis':   {'min_h': 3, 'max_h': 50, 'afstand_tot_raam': 1, 'aantal': 3}
+    'huismus':     {'min_h': 3, 'max_h': 10},
+    'gierzwaluw':  {'min_h': 6, 'max_h': 40},
+    'vleermuis':   {'min_h': 3, 'max_h': 50}
 }
 
-# 🔍 Model laden
+# 👤 Gebruiker kiest dier
+species = input("Kies een dier (huismus, gierzwaluw, vleermuis): ").strip().lower()
+if species not in rules:
+    raise ValueError("Ongeldig dier gekozen.")
+
+# 🔍 YOLO-model laden en detecteren
 model = YOLO(MODEL_PATH)
 results = model.predict(source=IMAGE_PATH, save=False)[0]
 
-# 📷 Afbeelding
+# 📷 Afbeelding laden
 img = Image.open(IMAGE_PATH)
 img_width, img_height = img.size
 
-# 🧱 Masks & ramen verzamelen
+# 🧱 Maskers initialiseren
 facade_mask = np.zeros((img_height, img_width), dtype=bool)
-window_boxes = []
+window_mask = np.zeros((img_height, img_width), dtype=bool)
 
-for i, box in enumerate(results.boxes):
+# 📦 Detectie verwerken
+for box in results.boxes:
     cls = int(box.cls.item())
     label = results.names[cls].lower()
-
     if label == 'window':
-        x1, y1, x2, y2 = box.xyxy[0]
-        window_boxes.append((x1.item(), y1.item(), x2.item(), y2.item()))
+        x1, y1, x2, y2 = map(int, box.xyxy[0])
+        window_mask[y1:y2+1, x1:x2+1] = True
 
-# ➕ Combineer alle façade-masks
 if results.masks:
     for seg, cls in zip(results.masks.data, results.boxes.cls):
-        label = results.names[int(cls.item())].lower()
-        if label == 'facade':
-            mask = seg.cpu().numpy()
-            mask = np.array(mask > 0.5)
-            # Schaal mask naar originele resolutie
-            mask_resized = np.array(Image.fromarray(mask).resize((img_width, img_height)))
-            facade_mask |= mask_resized
+        if results.names[int(cls.item())].lower() == 'facade':
+            mask = seg.cpu().numpy() > 0.5
+            resized = np.array(Image.fromarray(mask.astype(np.uint8)*255).resize((img_width, img_height), resample=Image.NEAREST))
+            facade_mask |= resized.astype(bool)
 
-# 🐣 Nestplaatsen
-nesten = {'huismus': [], 'gierzwaluw': [], 'vleermuis': []}
-max_pogingen = 5000
+# ➖ 35 cm marge op façade-rand
+pixels_margin = int(np.ceil(0.60 / PIXEL_SCALE))
+facade_inner = binary_erosion(facade_mask, structure=np.ones((3, 3)), iterations=pixels_margin)
 
-for soort, regel in rules.items():
-    nodig = regel['aantal']
-    poging = 0
+# 🚪 1 meter afstand tot ramen/deuren
+distance_from_windows = distance_transform_edt(~window_mask) * PIXEL_SCALE
+safe_from_windows = distance_from_windows >= 1.0
 
-    while len(nesten[soort]) < nodig and poging < max_pogingen:
-        poging += 1
-        x = random.randint(0, img_width - 1)
-        y = random.randint(0, img_height - 1)
-        if not facade_mask[y, x]:
-            continue
+# 📏 Hoogte-filter
+min_h = rules[species]['min_h']
+max_h = rules[species]['max_h']
 
-        hoogte_m = y * PIXEL_SCALE
-        if not (regel['min_h'] <= hoogte_m <= regel['max_h']):
-            continue
+y_coords = np.arange(img_height).reshape(-1, 1)  # van boven (0) naar onder (img_height-1)
+height_from_bottom = (img_height - y_coords) * PIXEL_SCALE  # onderaan = 0 m, boven = hoger
 
-        if soort == 'vleermuis':
-            dichtbij_raam = False
-            for rx1, ry1, rx2, ry2 in window_boxes:
-                midden_raam = ((rx1 + rx2) / 2, (ry1 + ry2) / 2)
-                dx = abs(x - midden_raam[0]) * PIXEL_SCALE
-                dy = abs(y - midden_raam[1]) * PIXEL_SCALE
-                afstand = (dx**2 + dy**2)**0.5
-                if afstand < regel['afstand_tot_raam']:
-                    dichtbij_raam = True
-                    break
-            if dichtbij_raam:
-                continue
+height_mask = (height_from_bottom >= min_h) & (height_from_bottom <= max_h)
+height_mask = np.repeat(height_mask, img_width, axis=1)
 
-        nesten[soort].append((x, y))
+# ✅ Combineer alles
+allowed_mask = facade_inner & safe_from_windows & height_mask
+
+# 🐣 Selecteer 5 nesten met minimaal 3 meter afstand tussen elkaar
+min_distance_m = 3.0
+min_distance_px = int(np.ceil(min_distance_m / PIXEL_SCALE))
+all_coords = np.argwhere(allowed_mask)
+selected_nests = []
+
+for y, x in all_coords:
+    if len(selected_nests) == 5:
+        break
+    if all(np.hypot(x - sx, y - sy) >= min_distance_px for sy, sx in selected_nests):
+        selected_nests.append((y, x))
 
 # 🎨 Visualisatie
-plt.figure(figsize=(10, 8))
-plt.imshow(img)
-plt.axis('off')
-plt.title("Nestlocaties binnen façade (segmentatie)")
+output_img = np.array(img.convert("RGB"))
+overlay = output_img.copy()
+overlay[allowed_mask] = [0, 255, 0]  # Groen waar toegestaan
 
-# 🖼️ Overlay icons in plaats van scatter
+blended = (0.6 * output_img + 0.4 * overlay).astype(np.uint8)
+
+fig, ax = plt.subplots(figsize=(12, 8))
+ax.imshow(blended)
+
+# 🖼️ Nesticonen toevoegen
 icon_paths = {
-    'huismus':    r"C:\Users\moham\Nest-Project\huismus.png",
-    'gierzwaluw': r"C:\Users\moham\Nest-Project\gierzwaluw.png",
-    'vleermuis':  r"C:\Users\moham\Nest-Project\vleermuis.png"
+    'huismus':     r"C:\Users\moham\Nest-Project\huismus.png",
+    'gierzwaluw':  r"C:\Users\moham\Nest-Project\gierzwaluw.png",
+    'vleermuis':   r"C:\Users\moham\Nest-Project\vleermuis.png"
 }
 
-for soort, punten in nesten.items():
-    icon = plt.imread(icon_paths[soort])
-    for x, y in punten:
-        imagebox = OffsetImage(icon, zoom=0.05)  # pas zoom aan als nodig
-        ab = AnnotationBbox(imagebox, (x, y), frameon=False)
-        plt.gca().add_artist(ab)
+icon_img = plt.imread(icon_paths[species])
+for y, x in selected_nests:
+    imagebox = OffsetImage(icon_img, zoom=0.05)  # zoom kan je aanpassen indien nodig
+    ab = AnnotationBbox(imagebox, (x, y), frameon=False)
+    ax.add_artist(ab)
 
+ax.set_title(f"Nestlocaties voor: {species} (≥3m afstand)")
+ax.axis('off')
 plt.show()
 
-# 🖨️ Print resultaten
-for soort, punten in nesten.items():
-    print(f"\n🔹 {soort.capitalize()} ({len(punten)} locaties):")
-    for i, (x, y) in enumerate(punten):
-        hoogte = y * PIXEL_SCALE
-        print(f"  - Punt {i+1}: x={x}, y={y} → hoogte ≈ {hoogte:.2f} m")
-import random
-import numpy as np
-from PIL import Image
-from ultralytics import YOLO
-import matplotlib.pyplot as plt
-from matplotlib.offsetbox import OffsetImage, AnnotationBbox
-
-# 📂 Paden
-IMAGE_PATH = r"C:\Users\moham\Nest-Project\nest_data\test\images\rijwoning-6-_png.rf.a677db79b71b58093105ad296ef13e93.jpg"
-MODEL_PATH = r"C:\Users\moham\Nest-Project\yolov8n_nest_50epochs.pt"
-
-# 📐 Schaal
-PIXEL_SCALE = 0.0175  # meter per pixel
-
-# 🐦 Nestregels
-rules = {
-    'huismus':     {'min_h': 3, 'max_h': 10, 'aantal': 5},
-    'gierzwaluw':  {'min_h': 6, 'max_h': 40, 'aantal': 5},
-    'vleermuis':   {'min_h': 3, 'max_h': 50, 'afstand_tot_raam': 1, 'aantal': 3}
-}
-
-# 🔍 Model laden
-model = YOLO(MODEL_PATH)
-results = model.predict(source=IMAGE_PATH, save=False)[0]
-
-# 📷 Afbeelding
-img = Image.open(IMAGE_PATH)
-img_width, img_height = img.size
-
-# 🧱 Masks & ramen verzamelen
-facade_mask = np.zeros((img_height, img_width), dtype=bool)
-window_boxes = []
-
-for i, box in enumerate(results.boxes):
-    cls = int(box.cls.item())
-    label = results.names[cls].lower()
-
-    if label == 'window':
-        x1, y1, x2, y2 = box.xyxy[0]
-        window_boxes.append((x1.item(), y1.item(), x2.item(), y2.item()))
-
-# ➕ Combineer alle façade-masks
-if results.masks:
-    for seg, cls in zip(results.masks.data, results.boxes.cls):
-        label = results.names[int(cls.item())].lower()
-        if label == 'facade':
-            mask = seg.cpu().numpy()
-            mask = np.array(mask > 0.5)
-            # Schaal mask naar originele resolutie
-            mask_resized = np.array(Image.fromarray(mask).resize((img_width, img_height)))
-            facade_mask |= mask_resized
-
-# 🐣 Nestplaatsen
-nesten = {'huismus': [], 'gierzwaluw': [], 'vleermuis': []}
-max_pogingen = 5000
-
-for soort, regel in rules.items():
-    nodig = regel['aantal']
-    poging = 0
-
-    while len(nesten[soort]) < nodig and poging < max_pogingen:
-        poging += 1
-        x = random.randint(0, img_width - 1)
-        y = random.randint(0, img_height - 1)
-        if not facade_mask[y, x]:
-            continue
-
-        hoogte_m = y * PIXEL_SCALE
-        if not (regel['min_h'] <= hoogte_m <= regel['max_h']):
-            continue
-
-        if soort == 'vleermuis':
-            dichtbij_raam = False
-            for rx1, ry1, rx2, ry2 in window_boxes:
-                midden_raam = ((rx1 + rx2) / 2, (ry1 + ry2) / 2)
-                dx = abs(x - midden_raam[0]) * PIXEL_SCALE
-                dy = abs(y - midden_raam[1]) * PIXEL_SCALE
-                afstand = (dx**2 + dy**2)**0.5
-                if afstand < regel['afstand_tot_raam']:
-                    dichtbij_raam = True
-                    break
-            if dichtbij_raam:
-                continue
-
-        nesten[soort].append((x, y))
-
-# 🎨 Visualisatie
-plt.figure(figsize=(10, 8))
-plt.imshow(img)
-plt.axis('off')
-plt.title("Nestlocaties en façade-masker")
-
-# 🔴 Overlay façade-mask (semi-transparant rood)
-mask_overlay = np.zeros((img_height, img_width, 4), dtype=np.uint8)  # RGBA
-mask_overlay[facade_mask] = [255, 0, 0, 100]  # Rood met alpha = 100/255
-plt.imshow(mask_overlay)
-
-# 🖼️ Overlay icons
-icon_paths = {
-    'huismus':    r"C:\Users\moham\Nest-Project\huismus.png",
-    'gierzwaluw': r"C:\Users\moham\Nest-Project\gierzwaluw.png",
-    'vleermuis':  r"C:\Users\moham\Nest-Project\vleermuis.png"
-}
-
-for soort, punten in nesten.items():
-    icon = plt.imread(icon_paths[soort])
-    for x, y in punten:
-        imagebox = OffsetImage(icon, zoom=0.05)
-        ab = AnnotationBbox(imagebox, (x, y), frameon=False)
-        plt.gca().add_artist(ab)
-
-plt.show()
-
-# 🖨️ Print resultaten
-for soort, punten in nesten.items():
-    print(f"\n🔹 {soort.capitalize()} ({len(punten)} locaties):")
-    for i, (x, y) in enumerate(punten):
-        hoogte = y * PIXEL_SCALE
-        print(f"  - Punt {i+1}: x={x}, y={y} → hoogte ≈ {hoogte:.2f} m")
+# 📄 Resultaten printen
+print(f"\nNestlocaties voor {species} (min. 3m tussenafstand):")
+for i, (y, x) in enumerate(selected_nests, 1):
+    hoogte = y * PIXEL_SCALE
+    print(f"Nest {i}: x={x}, y={y} → hoogte ≈ {hoogte:.2f} m")
