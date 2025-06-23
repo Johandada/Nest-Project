@@ -1,13 +1,12 @@
 # Negeer mappen met data-afbeeldingen en output
 Data_nest_uitgesneden/
+Data_nest_uitgesneden_edges/
+Data_nest_uitgesneden_output/
 Data_nest_uitgesneden_zonder_achtergrond/
-Data_nest_output/
+Resultaten_met_Contouren/
+*.jpg
+.ipynb_checkpoints/
 
 # Negeer het .pth bestand met de gewichten van het SAM-model
+models/
 *.pth
-*.yml
-
-# Negeer waar ik momenteel aan het werk ben
-detecteren_zonder_toevoegingen.ipynb
-testen.ipynb
-sam.ipynb
