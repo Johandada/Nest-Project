@@ -3,10 +3,11 @@ import numpy as np
 from PIL import Image
 from ultralytics import YOLO
 import matplotlib.pyplot as plt
+from matplotlib.offsetbox import OffsetImage, AnnotationBbox
 
 # 📂 Paden
-IMAGE_PATH = r"C:\Users\karoo\CLONED\Nest-Project\Nest-Project\nest_data\test\images\rijwoning-6-_png.rf.a677db79b71b58093105ad296ef13e93.jpg"
-MODEL_PATH = r"C:\Users\karoo\CLONED\Nest-Project\Nest-Project\yolov8n_nest_50epochs.pt"
+IMAGE_PATH = r"C:\Users\moham\Nest-Project\nest_data\test\images\half_vrijstaand_type_e-4-_png.rf.43e530b98b2c051a8aa4a235fddc4957.jpg"
+MODEL_PATH = r"C:\Users\moham\Nest-Project\yolov8n_nest_50epochs.pt"
 
 # 📐 Schaal
 PIXEL_SCALE = 0.0175  # meter per pixel
@@ -89,17 +90,19 @@ plt.imshow(img)
 plt.axis('off')
 plt.title("Nestlocaties binnen façade (segmentatie)")
 
-kleuren = {'huismus': 'blue', 'gierzwaluw': 'green', 'vleermuis': 'red'}
-symbolen = {'huismus': 'o', 'gierzwaluw': '^', 'vleermuis': 's'}
+# 🖼️ Overlay icons in plaats van scatter
+icon_paths = {
+    'huismus':    r"C:\Users\moham\Nest-Project\huismus.png",
+    'gierzwaluw': r"C:\Users\moham\Nest-Project\gierzwaluw.png",
+    'vleermuis':  r"C:\Users\moham\Nest-Project\vleermuis.png"
+}
 
 for soort, punten in nesten.items():
+    icon = plt.imread(icon_paths[soort])
     for x, y in punten:
-        plt.scatter(x, y, c=kleuren[soort], marker=symbolen[soort], label=soort, s=60, edgecolors='black')
-
-# ✅ Legenda correct tonen
-handles, labels = plt.gca().get_legend_handles_labels()
-by_label = dict(zip(labels, handles))
-plt.legend(by_label.values(), by_label.keys())
+        imagebox = OffsetImage(icon, zoom=0.05)  # pas zoom aan als nodig
+        ab = AnnotationBbox(imagebox, (x, y), frameon=False)
+        plt.gca().add_artist(ab)
 
 plt.show()
 
