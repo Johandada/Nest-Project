@@ -5,29 +5,29 @@ from ultralytics import YOLO
 import matplotlib.pyplot as plt
 from matplotlib.offsetbox import OffsetImage, AnnotationBbox
 
-# 📂 Paden
+#  Paden
 IMAGE_PATH = r"C:\Users\moham\Nest-Project\nest_data\test\images\half_vrijstaand_type_e-4-_png.rf.43e530b98b2c051a8aa4a235fddc4957.jpg"
 MODEL_PATH = r"C:\Users\moham\Nest-Project\yolov8n_nest_50epochs.pt"
 
-# 📐 Schaal
+# Schaal
 PIXEL_SCALE = 0.0175  # meter per pixel
 
-# 🐦 Nestregels
+# Nestregels
 rules = {
     'huismus':     {'min_h': 3, 'max_h': 10, 'aantal': 5},
     'gierzwaluw':  {'min_h': 6, 'max_h': 40, 'aantal': 5},
     'vleermuis':   {'min_h': 3, 'max_h': 50, 'afstand_tot_raam': 1, 'aantal': 3}
 }
 
-# 🔍 Model laden
+#  Model laden
 model = YOLO(MODEL_PATH)
 results = model.predict(source=IMAGE_PATH, save=False)[0]
 
-# 📷 Afbeelding
+# Afbeelding
 img = Image.open(IMAGE_PATH)
 img_width, img_height = img.size
 
-# 🧱 Masks & ramen verzamelen
+# Masks & ramen verzamelen
 facade_mask = np.zeros((img_height, img_width), dtype=bool)
 window_boxes = []
 
@@ -39,7 +39,7 @@ for i, box in enumerate(results.boxes):
         x1, y1, x2, y2 = box.xyxy[0]
         window_boxes.append((x1.item(), y1.item(), x2.item(), y2.item()))
 
-# ➕ Combineer alle façade-masks
+# Combineer alle façade-masks
 if results.masks:
     for seg, cls in zip(results.masks.data, results.boxes.cls):
         label = results.names[int(cls.item())].lower()
@@ -50,7 +50,7 @@ if results.masks:
             mask_resized = np.array(Image.fromarray(mask).resize((img_width, img_height)))
             facade_mask |= mask_resized
 
-# 🐣 Nestplaatsen
+# Nestplaatsen
 nesten = {'huismus': [], 'gierzwaluw': [], 'vleermuis': []}
 max_pogingen = 5000
 
@@ -84,13 +84,13 @@ for soort, regel in rules.items():
 
         nesten[soort].append((x, y))
 
-# 🎨 Visualisatie
+#  Visualisatie
 plt.figure(figsize=(10, 8))
 plt.imshow(img)
 plt.axis('off')
 plt.title("Nestlocaties binnen façade (segmentatie)")
 
-# 🖼️ Overlay icons in plaats van scatter
+# Overlay icons in plaats van scatter
 icon_paths = {
     'huismus':    r"C:\Users\moham\Nest-Project\huismus.png",
     'gierzwaluw': r"C:\Users\moham\Nest-Project\gierzwaluw.png",
@@ -106,7 +106,7 @@ for soort, punten in nesten.items():
 
 plt.show()
 
-# 🖨️ Print resultaten
+# Print resultaten
 for soort, punten in nesten.items():
     print(f"\n🔹 {soort.capitalize()} ({len(punten)} locaties):")
     for i, (x, y) in enumerate(punten):
