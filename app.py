@@ -14,28 +14,30 @@ with col2:
 
 st.title("YOLOv8 Nest Model Dashboard")
 
-# 🐦 Soortkeuze
+st.markdown("""
+### Welkom bij het Nest Model Dashboard
+Deze applicatie helpt je geschikte locaties voor nestkasten te vinden op basis van een geüploade foto van een gebouw.
+
+1. Kies een diersoort.
+2. Upload een gevelafbeelding.
+3. Klik op **Voer analyse uit** om te zien waar nestkasten geplaatst kunnen worden.
+""")
+
 selected_species = st.selectbox(
     "Kies een diersoort voor nestanalyse:",
-    ["huismus", "gierzwaluw", "vleermuis"]
+    ["huismus", "gierzwaluw", "vleermuis"],
+    help="Selecteer de soort waarvoor je nestlocaties wilt analyseren"
 )
 
-uploaded_file = st.file_uploader("Upload een afbeelding", type=["jpg", "jpeg", "png"])
+uploaded_file = st.file_uploader("Upload een afbeelding", type=["jpg", "jpeg", "png"],
+    help="Upload een gevelafbeelding met zichtbare ramen en muur"
+)
 
 if uploaded_file is not None:
     image = Image.open(uploaded_file)
     st.image(image, caption="Geüploade afbeelding", use_container_width=True)
 
-    if st.button("Voorspel"):
-        with st.spinner("Model wordt toegepast..."):
-            result = run_model(image)
-        st.success("Analyse voltooid!")
-        st.image(result["image_with_boxes"], caption="📷 Resultaat met bounding boxes", use_container_width=True)
-        st.write("🔎 Aantal objecten:", result["n_boxes"])
-        st.write("🔖 Labels:", result["labels"])
-        st.write("📊 Confidences:", result["confidences"])
-
-    if st.button("Start nestanalyse"):
+    if st.button("Voer analyse uit"):
         iconen = {
             'huismus': 'huismus.png',
             'gierzwaluw': 'gierzwaluw.png',
@@ -45,6 +47,6 @@ if uploaded_file is not None:
             fig, locaties = analyseer_nestlocaties(image, selected_species, "yolov8n_nest_50epochs.pt", iconen)
         st.pyplot(fig)
 
-        st.write(f"### 📍 Nestlocaties voor {selected_species}")
+        st.markdown(f"### Plaats de nestkasten voor **{selected_species}** op de volgende locaties:")
         for i, loc in enumerate(locaties, 1):
             st.write(f"Nest {i}: x={loc['x']}, y={loc['y']} → hoogte ≈ {loc['hoogte_m']} m")
