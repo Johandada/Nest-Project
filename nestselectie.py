@@ -7,7 +7,7 @@ from scipy.ndimage import distance_transform_edt, binary_erosion
 from matplotlib.offsetbox import OffsetImage, AnnotationBbox  # ← toegevoegd voor iconen
 
 # 📂 Pad instellingen
-IMAGE_PATH = r"C:\Users\moham\Nest-Project\nest_data\test\images\rijwoning-10-_png.rf.a825cfca1b641a01134dd76718b426d6.jpg"
+IMAGE_PATH = r"C:\Users\moham\Nest-Project\nest_data\test\images\test_3.jpg"
 MODEL_PATH = r"C:\Users\moham\Nest-Project\yolov8n_nest_50epochs.pt"
 
 # 📐 Schaal
@@ -33,11 +33,11 @@ results = model.predict(source=IMAGE_PATH, save=False)[0]
 img = Image.open(IMAGE_PATH)
 img_width, img_height = img.size
 
-# 🧱 Maskers initialiseren
+# Maskers initialiseren
 facade_mask = np.zeros((img_height, img_width), dtype=bool)
 window_mask = np.zeros((img_height, img_width), dtype=bool)
 
-# 📦 Detectie verwerken
+# Detectie verwerken
 for box in results.boxes:
     cls = int(box.cls.item())
     label = results.names[cls].lower()
@@ -52,11 +52,11 @@ if results.masks:
             resized = np.array(Image.fromarray(mask.astype(np.uint8)*255).resize((img_width, img_height), resample=Image.NEAREST))
             facade_mask |= resized.astype(bool)
 
-# ➖ 35 cm marge op façade-rand
+# ➖ 60 cm marge op gevel-rand
 pixels_margin = int(np.ceil(0.60 / PIXEL_SCALE))
 facade_inner = binary_erosion(facade_mask, structure=np.ones((3, 3)), iterations=pixels_margin)
 
-# 🚪 1 meter afstand tot ramen/deuren
+# 🚪 1 meter afstand tot ramen/deuren houden
 distance_from_windows = distance_transform_edt(~window_mask) * PIXEL_SCALE
 safe_from_windows = distance_from_windows >= 1.0
 
