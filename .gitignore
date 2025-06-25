@@ -4,6 +4,7 @@ Data_nest_uitgesneden_edges/
 Data_nest_uitgesneden_output/
 Data_nest_uitgesneden_zonder_achtergrond/
 Resultaten_met_Contouren/
+Test_data/
 *.jpg
 .ipynb_checkpoints/
 
