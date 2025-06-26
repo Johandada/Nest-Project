@@ -1,7 +1,6 @@
 import streamlit as st
 from PIL import Image
-from model_predict import run_model
-from nestlogica import analyseer_nestlocaties
+from yolo_model.nestlogica import analyseer_nestlocaties
 
 col1, col2 = st.columns([1, 1])
 
@@ -44,7 +43,8 @@ if uploaded_file is not None:
             'vleermuis': 'vleermuis.png'
         }
         with st.spinner("Nestlocaties worden berekend..."):
-            fig, locaties = analyseer_nestlocaties(image, selected_species, "yolov8n_nest_50epochs.pt", iconen)
+            fig, locaties = analyseer_nestlocaties(image, selected_species,
+                                                   "Modellen/getrainde modellen/yolov8n_nest_50epochs.pt", iconen)
         st.pyplot(fig)
 
         st.markdown(f"### Plaats de nestkasten voor **{selected_species}** op de volgende locaties:")
