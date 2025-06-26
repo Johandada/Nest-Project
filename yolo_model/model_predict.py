@@ -8,7 +8,7 @@ import torch
 device = 'cuda' if torch.cuda.is_available() else 'cpu'
 
 # Laad het modelbestand (zorg dat dit klopt met bestandsnaam!)
-model = YOLO("yolov8n_nest_50epochs.pt")
+model = YOLO("../Modellen/getrainde modellen/yolov8n_nest_50epochs.pt")
 import io
 from PIL import ImageDraw
 
