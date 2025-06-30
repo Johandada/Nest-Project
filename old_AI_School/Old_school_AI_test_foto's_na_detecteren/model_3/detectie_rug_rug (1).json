@@ -1,0 +1,47 @@
+[
+  {
+    "label": "Raam",
+    "bounding_box": [
+      97,
+      256,
+      56,
+      66
+    ]
+  },
+  {
+    "label": "Raam",
+    "bounding_box": [
+      154,
+      161,
+      43,
+      85
+    ]
+  },
+  {
+    "label": "Raam",
+    "bounding_box": [
+      229,
+      138,
+      41,
+      49
+    ]
+  },
+  {
+    "label": "Raam",
+    "bounding_box": [
+      57,
+      119,
+      39,
+      29
+    ]
+  },
+  {
+    "label": "Huis",
+    "bounding_box": [
+      0,
+      0,
+      1081,
+      741
+    ]
+  }
+]

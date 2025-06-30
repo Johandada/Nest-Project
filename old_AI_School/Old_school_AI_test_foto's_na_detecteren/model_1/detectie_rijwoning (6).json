@@ -1,0 +1,1342 @@
+[
+  {
+    "label": "Raam",
+    "bounding_box": [
+      80,
+      632,
+      34,
+      31
+    ],
+    "aspectverhouding": 1.1
+  },
+  {
+    "label": "Raam",
+    "bounding_box": [
+      141,
+      619,
+      40,
+      44
+    ],
+    "aspectverhouding": 0.91
+  },
+  {
+    "label": "Raam",
+    "bounding_box": [
+      113,
+      608,
+      39,
+      46
+    ],
+    "aspectverhouding": 0.85
+  },
+  {
+    "label": "Raam",
+    "bounding_box": [
+      1088,
+      599,
+      31,
+      38
+    ],
+    "aspectverhouding": 0.82
+  },
+  {
+    "label": "Raam",
+    "bounding_box": [
+      1760,
+      597,
+      34,
+      42
+    ],
+    "aspectverhouding": 0.81
+  },
+  {
+    "label": "Raam",
+    "bounding_box": [
+      1087,
+      597,
+      34,
+      42
+    ],
+    "aspectverhouding": 0.81
+  },
+  {
+    "label": "Raam",
+    "bounding_box": [
+      414,
+      597,
+      34,
+      42
+    ],
+    "aspectverhouding": 0.81
+  },
+  {
+    "label": "Raam",
+    "bounding_box": [
+      414,
+      597,
+      34,
+      42
+    ],
+    "aspectverhouding": 0.81
+  },
+  {
+    "label": "Raam",
+    "bounding_box": [
+      45,
+      592,
+      44,
+      60
+    ],
+    "aspectverhouding": 0.73
+  },
+  {
+    "label": "Raam",
+    "bounding_box": [
+      227,
+      562,
+      32,
+      46
+    ],
+    "aspectverhouding": 0.7
+  },
+  {
+    "label": "Deur",
+    "bounding_box": [
+      571,
+      542,
+      46,
+      121
+    ],
+    "aspectverhouding": 0.38
+  },
+  {
+    "label": "Deur",
+    "bounding_box": [
+      796,
+      535,
+      47,
+      128
+    ],
+    "aspectverhouding": 0.37
+  },
+  {
+    "label": "Raam",
+    "bounding_box": [
+      958,
+      598,
+      33,
+      41
+    ],
+    "aspectverhouding": 0.8
+  },
+  {
+    "label": "Deur",
+    "bounding_box": [
+      274,
+      529,
+      50,
+      114
+    ],
+    "aspectverhouding": 0.44
+  },
+  {
+    "label": "Deur",
+    "bounding_box": [
+      706,
+      525,
+      83,
+      138
+    ],
+    "aspectverhouding": 0.6
+  },
+  {
+    "label": "Raam",
+    "bounding_box": [
+      1755,
+      524,
+      39,
+      48
+    ],
+    "aspectverhouding": 0.81
+  },
+  {
+    "label": "Raam",
+    "bounding_box": [
+      1755,
+      524,
+      39,
+      48
+    ],
+    "aspectverhouding": 0.81
+  },
+  {
+    "label": "Raam",
+    "bounding_box": [
+      1631,
+      524,
+      39,
+      48
+    ],
+    "aspectverhouding": 0.81
+  },
+  {
+    "label": "Raam",
+    "bounding_box": [
+      1082,
+      524,
+      39,
+      48
+    ],
+    "aspectverhouding": 0.81
+  },
+  {
+    "label": "Raam",
+    "bounding_box": [
+      958,
+      524,
+      39,
+      48
+    ],
+    "aspectverhouding": 0.81
+  },
+  {
+    "label": "Raam",
+    "bounding_box": [
+      958,
+      524,
+      39,
+      48
+    ],
+    "aspectverhouding": 0.81
+  },
+  {
+    "label": "Raam",
+    "bounding_box": [
+      408,
+      524,
+      40,
+      49
+    ],
+    "aspectverhouding": 0.82
+  },
+  {
+    "label": "Raam",
+    "bounding_box": [
+      284,
+      524,
+      40,
+      49
+    ],
+    "aspectverhouding": 0.82
+  },
+  {
+    "label": "Raam",
+    "bounding_box": [
+      284,
+      524,
+      40,
+      49
+    ],
+    "aspectverhouding": 0.82
+  },
+  {
+    "label": "Deur",
+    "bounding_box": [
+      617,
+      522,
+      43,
+      141
+    ],
+    "aspectverhouding": 0.3
+  },
+  {
+    "label": "Deur",
+    "bounding_box": [
+      1914,
+      517,
+      47,
+      138
+    ],
+    "aspectverhouding": 0.34
+  },
+  {
+    "label": "Deur",
+    "bounding_box": [
+      1918,
+      519,
+      43,
+      132
+    ],
+    "aspectverhouding": 0.33
+  },
+  {
+    "label": "Deur",
+    "bounding_box": [
+      1797,
+      517,
+      52,
+      146
+    ],
+    "aspectverhouding": 0.36
+  },
+  {
+    "label": "Deur",
+    "bounding_box": [
+      1809,
+      519,
+      38,
+      133
+    ],
+    "aspectverhouding": 0.29
+  },
+  {
+    "label": "Raam",
+    "bounding_box": [
+      1750,
+      517,
+      51,
+      64
+    ],
+    "aspectverhouding": 0.8
+  },
+  {
+    "label": "Raam",
+    "bounding_box": [
+      1750,
+      517,
+      51,
+      64
+    ],
+    "aspectverhouding": 0.8
+  },
+  {
+    "label": "Raam",
+    "bounding_box": [
+      1425,
+      517,
+      35,
+      63
+    ],
+    "aspectverhouding": 0.56
+  },
+  {
+    "label": "Deur",
+    "bounding_box": [
+      1076,
+      517,
+      52,
+      122
+    ],
+    "aspectverhouding": 0.43
+  },
+  {
+    "label": "Raam",
+    "bounding_box": [
+      951,
+      517,
+      51,
+      69
+    ],
+    "aspectverhouding": 0.74
+  },
+  {
+    "label": "Raam",
+    "bounding_box": [
+      951,
+      517,
+      51,
+      64
+    ],
+    "aspectverhouding": 0.8
+  },
+  {
+    "label": "Deur",
+    "bounding_box": [
+      839,
+      517,
+      69,
+      146
+    ],
+    "aspectverhouding": 0.47
+  },
+  {
+    "label": "Raam",
+    "bounding_box": [
+      840,
+      576,
+      62,
+      60
+    ],
+    "aspectverhouding": 1.03
+  },
+  {
+    "label": "Raam",
+    "bounding_box": [
+      568,
+      517,
+      39,
+      58
+    ],
+    "aspectverhouding": 0.67
+  },
+  {
+    "label": "Deur",
+    "bounding_box": [
+      449,
+      517,
+      50,
+      146
+    ],
+    "aspectverhouding": 0.34
+  },
+  {
+    "label": "Deur",
+    "bounding_box": [
+      1746,
+      516,
+      42,
+      146
+    ],
+    "aspectverhouding": 0.29
+  },
+  {
+    "label": "Deur",
+    "bounding_box": [
+      1965,
+      515,
+      53,
+      135
+    ],
+    "aspectverhouding": 0.39
+  },
+  {
+    "label": "Deur",
+    "bounding_box": [
+      1578,
+      515,
+      97,
+      148
+    ],
+    "aspectverhouding": 0.66
+  },
+  {
+    "label": "Deur",
+    "bounding_box": [
+      1582,
+      519,
+      38,
+      133
+    ],
+    "aspectverhouding": 0.29
+  },
+  {
+    "label": "Raam",
+    "bounding_box": [
+      1292,
+      515,
+      50,
+      65
+    ],
+    "aspectverhouding": 0.77
+  },
+  {
+    "label": "Deur",
+    "bounding_box": [
+      1243,
+      515,
+      99,
+      148
+    ],
+    "aspectverhouding": 0.67
+  },
+  {
+    "label": "Deur",
+    "bounding_box": [
+      951,
+      515,
+      57,
+      128
+    ],
+    "aspectverhouding": 0.45
+  },
+  {
+    "label": "Deur",
+    "bounding_box": [
+      400,
+      515,
+      55,
+      128
+    ],
+    "aspectverhouding": 0.43
+  },
+  {
+    "label": "Deur",
+    "bounding_box": [
+      1624,
+      514,
+      57,
+      135
+    ],
+    "aspectverhouding": 0.42
+  },
+  {
+    "label": "Deur",
+    "bounding_box": [
+      892,
+      514,
+      54,
+      149
+    ],
+    "aspectverhouding": 0.36
+  },
+  {
+    "label": "Deur",
+    "bounding_box": [
+      661,
+      499,
+      46,
+      156
+    ],
+    "aspectverhouding": 0.29
+  },
+  {
+    "label": "Raam",
+    "bounding_box": [
+      604,
+      469,
+      67,
+      62
+    ],
+    "aspectverhouding": 1.08
+  },
+  {
+    "label": "Deur",
+    "bounding_box": [
+      741,
+      448,
+      79,
+      140
+    ],
+    "aspectverhouding": 0.56
+  },
+  {
+    "label": "Raam",
+    "bounding_box": [
+      607,
+      447,
+      36,
+      38
+    ],
+    "aspectverhouding": 0.95
+  },
+  {
+    "label": "Raam",
+    "bounding_box": [
+      1177,
+      575,
+      61,
+      71
+    ],
+    "aspectverhouding": 0.86
+  },
+  {
+    "label": "Deur",
+    "bounding_box": [
+      1245,
+      519,
+      42,
+      132
+    ],
+    "aspectverhouding": 0.32
+  },
+  {
+    "label": "Raam",
+    "bounding_box": [
+      1177,
+      511,
+      61,
+      73
+    ],
+    "aspectverhouding": 0.84
+  },
+  {
+    "label": "Raam",
+    "bounding_box": [
+      1009,
+      552,
+      28,
+      47
+    ],
+    "aspectverhouding": 0.6
+  },
+  {
+    "label": "Raam",
+    "bounding_box": [
+      711,
+      431,
+      75,
+      64
+    ],
+    "aspectverhouding": 1.17
+  },
+  {
+    "label": "Deur",
+    "bounding_box": [
+      829,
+      419,
+      86,
+      131
+    ],
+    "aspectverhouding": 0.66
+  },
+  {
+    "label": "Raam",
+    "bounding_box": [
+      832,
+      466,
+      25,
+      49
+    ],
+    "aspectverhouding": 0.51
+  },
+  {
+    "label": "Raam",
+    "bounding_box": [
+      855,
+      450,
+      32,
+      44
+    ],
+    "aspectverhouding": 0.73
+  },
+  {
+    "label": "Raam",
+    "bounding_box": [
+      560,
+      416,
+      51,
+      50
+    ],
+    "aspectverhouding": 1.02
+  },
+  {
+    "label": "Raam",
+    "bounding_box": [
+      462,
+      358,
+      40,
+      52
+    ],
+    "aspectverhouding": 0.77
+  },
+  {
+    "label": "Raam",
+    "bounding_box": [
+      808,
+      322,
+      55,
+      71
+    ],
+    "aspectverhouding": 0.77
+  },
+  {
+    "label": "Raam",
+    "bounding_box": [
+      657,
+      308,
+      32,
+      52
+    ],
+    "aspectverhouding": 0.62
+  },
+  {
+    "label": "Deur",
+    "bounding_box": [
+      1997,
+      302,
+      48,
+      131
+    ],
+    "aspectverhouding": 0.37
+  },
+  {
+    "label": "Raam",
+    "bounding_box": [
+      1778,
+      388,
+      39,
+      40
+    ],
+    "aspectverhouding": 0.97
+  },
+  {
+    "label": "Raam",
+    "bounding_box": [
+      1782,
+      368,
+      31,
+      56
+    ],
+    "aspectverhouding": 0.55
+  },
+  {
+    "label": "Raam",
+    "bounding_box": [
+      1778,
+      342,
+      39,
+      40
+    ],
+    "aspectverhouding": 0.97
+  },
+  {
+    "label": "Raam",
+    "bounding_box": [
+      1942,
+      338,
+      48,
+      95
+    ],
+    "aspectverhouding": 0.51
+  },
+  {
+    "label": "Raam",
+    "bounding_box": [
+      1950,
+      368,
+      32,
+      56
+    ],
+    "aspectverhouding": 0.57
+  },
+  {
+    "label": "Raam",
+    "bounding_box": [
+      1950,
+      342,
+      36,
+      41
+    ],
+    "aspectverhouding": 0.88
+  },
+  {
+    "label": "Raam",
+    "bounding_box": [
+      1886,
+      338,
+      48,
+      95
+    ],
+    "aspectverhouding": 0.51
+  },
+  {
+    "label": "Raam",
+    "bounding_box": [
+      1889,
+      389,
+      41,
+      39
+    ],
+    "aspectverhouding": 1.05
+  },
+  {
+    "label": "Raam",
+    "bounding_box": [
+      1894,
+      368,
+      32,
+      56
+    ],
+    "aspectverhouding": 0.57
+  },
+  {
+    "label": "Deur",
+    "bounding_box": [
+      1828,
+      302,
+      49,
+      130
+    ],
+    "aspectverhouding": 0.38
+  },
+  {
+    "label": "Deur",
+    "bounding_box": [
+      1716,
+      302,
+      55,
+      131
+    ],
+    "aspectverhouding": 0.42
+  },
+  {
+    "label": "Deur",
+    "bounding_box": [
+      1548,
+      302,
+      55,
+      131
+    ],
+    "aspectverhouding": 0.42
+  },
+  {
+    "label": "Deur",
+    "bounding_box": [
+      1379,
+      302,
+      56,
+      131
+    ],
+    "aspectverhouding": 0.43
+  },
+  {
+    "label": "Raam",
+    "bounding_box": [
+      1275,
+      368,
+      32,
+      56
+    ],
+    "aspectverhouding": 0.57
+  },
+  {
+    "label": "Raam",
+    "bounding_box": [
+      1103,
+      342,
+      38,
+      40
+    ],
+    "aspectverhouding": 0.95
+  },
+  {
+    "label": "Deur",
+    "bounding_box": [
+      1155,
+      302,
+      49,
+      130
+    ],
+    "aspectverhouding": 0.38
+  },
+  {
+    "label": "Deur",
+    "bounding_box": [
+      1043,
+      302,
+      55,
+      131
+    ],
+    "aspectverhouding": 0.42
+  },
+  {
+    "label": "Deur",
+    "bounding_box": [
+      987,
+      302,
+      50,
+      131
+    ],
+    "aspectverhouding": 0.38
+  },
+  {
+    "label": "Deur",
+    "bounding_box": [
+      931,
+      302,
+      55,
+      132
+    ],
+    "aspectverhouding": 0.42
+  },
+  {
+    "label": "Raam",
+    "bounding_box": [
+      770,
+      383,
+      35,
+      45
+    ],
+    "aspectverhouding": 0.78
+  },
+  {
+    "label": "Deur",
+    "bounding_box": [
+      89,
+      302,
+      55,
+      131
+    ],
+    "aspectverhouding": 0.42
+  },
+  {
+    "label": "Raam",
+    "bounding_box": [
+      93,
+      388,
+      41,
+      40
+    ],
+    "aspectverhouding": 1.02
+  },
+  {
+    "label": "Raam",
+    "bounding_box": [
+      93,
+      342,
+      38,
+      45
+    ],
+    "aspectverhouding": 0.84
+  },
+  {
+    "label": "Deur",
+    "bounding_box": [
+      34,
+      302,
+      54,
+      131
+    ],
+    "aspectverhouding": 0.41
+  },
+  {
+    "label": "Raam",
+    "bounding_box": [
+      599,
+      301,
+      46,
+      58
+    ],
+    "aspectverhouding": 0.79
+  },
+  {
+    "label": "Raam",
+    "bounding_box": [
+      654,
+      260,
+      36,
+      44
+    ],
+    "aspectverhouding": 0.82
+  },
+  {
+    "label": "Raam",
+    "bounding_box": [
+      738,
+      259,
+      33,
+      42
+    ],
+    "aspectverhouding": 0.79
+  },
+  {
+    "label": "Raam",
+    "bounding_box": [
+      96,
+      208,
+      36,
+      33
+    ],
+    "aspectverhouding": 1.09
+  },
+  {
+    "label": "Raam",
+    "bounding_box": [
+      96,
+      208,
+      36,
+      33
+    ],
+    "aspectverhouding": 1.09
+  },
+  {
+    "label": "Raam",
+    "bounding_box": [
+      592,
+      205,
+      41,
+      77
+    ],
+    "aspectverhouding": 0.53
+  },
+  {
+    "label": "Raam",
+    "bounding_box": [
+      1947,
+      204,
+      40,
+      37
+    ],
+    "aspectverhouding": 1.08
+  },
+  {
+    "label": "Raam",
+    "bounding_box": [
+      1947,
+      207,
+      36,
+      34
+    ],
+    "aspectverhouding": 1.06
+  },
+  {
+    "label": "Raam",
+    "bounding_box": [
+      1442,
+      204,
+      40,
+      37
+    ],
+    "aspectverhouding": 1.08
+  },
+  {
+    "label": "Raam",
+    "bounding_box": [
+      1442,
+      207,
+      36,
+      34
+    ],
+    "aspectverhouding": 1.06
+  },
+  {
+    "label": "Raam",
+    "bounding_box": [
+      1274,
+      204,
+      40,
+      37
+    ],
+    "aspectverhouding": 1.08
+  },
+  {
+    "label": "Raam",
+    "bounding_box": [
+      1274,
+      207,
+      36,
+      34
+    ],
+    "aspectverhouding": 1.06
+  },
+  {
+    "label": "Raam",
+    "bounding_box": [
+      92,
+      204,
+      40,
+      37
+    ],
+    "aspectverhouding": 1.08
+  },
+  {
+    "label": "Raam",
+    "bounding_box": [
+      756,
+      200,
+      47,
+      42
+    ],
+    "aspectverhouding": 1.12
+  },
+  {
+    "label": "Raam",
+    "bounding_box": [
+      1937,
+      196,
+      56,
+      49
+    ],
+    "aspectverhouding": 1.14
+  },
+  {
+    "label": "Raam",
+    "bounding_box": [
+      1264,
+      196,
+      56,
+      50
+    ],
+    "aspectverhouding": 1.12
+  },
+  {
+    "label": "Raam",
+    "bounding_box": [
+      86,
+      196,
+      56,
+      50
+    ],
+    "aspectverhouding": 1.12
+  },
+  {
+    "label": "Raam",
+    "bounding_box": [
+      618,
+      193,
+      33,
+      59
+    ],
+    "aspectverhouding": 0.56
+  },
+  {
+    "label": "Deur",
+    "bounding_box": [
+      1468,
+      519,
+      48,
+      137
+    ],
+    "aspectverhouding": 0.35
+  },
+  {
+    "label": "Raam",
+    "bounding_box": [
+      1379,
+      511,
+      27,
+      52
+    ],
+    "aspectverhouding": 0.52
+  },
+  {
+    "label": "Raam",
+    "bounding_box": [
+      652,
+      185,
+      55,
+      63
+    ],
+    "aspectverhouding": 0.87
+  },
+  {
+    "label": "Raam",
+    "bounding_box": [
+      732,
+      181,
+      56,
+      50
+    ],
+    "aspectverhouding": 1.12
+  },
+  {
+    "label": "Raam",
+    "bounding_box": [
+      770,
+      145,
+      35,
+      32
+    ],
+    "aspectverhouding": 1.09
+  },
+  {
+    "label": "Raam",
+    "bounding_box": [
+      649,
+      124,
+      61,
+      57
+    ],
+    "aspectverhouding": 1.07
+  },
+  {
+    "label": "Raam",
+    "bounding_box": [
+      753,
+      118,
+      44,
+      45
+    ],
+    "aspectverhouding": 0.98
+  },
+  {
+    "label": "Raam",
+    "bounding_box": [
+      467,
+      115,
+      34,
+      41
+    ],
+    "aspectverhouding": 0.83
+  },
+  {
+    "label": "Raam",
+    "bounding_box": [
+      631,
+      81,
+      60,
+      75
+    ],
+    "aspectverhouding": 0.8
+  },
+  {
+    "label": "Raam",
+    "bounding_box": [
+      607,
+      69,
+      45,
+      58
+    ],
+    "aspectverhouding": 0.78
+  },
+  {
+    "label": "Raam",
+    "bounding_box": [
+      742,
+      34,
+      51,
+      56
+    ],
+    "aspectverhouding": 0.91
+  },
+  {
+    "label": "Raam",
+    "bounding_box": [
+      660,
+      32,
+      38,
+      36
+    ],
+    "aspectverhouding": 1.06
+  },
+  {
+    "label": "Raam",
+    "bounding_box": [
+      708,
+      26,
+      48,
+      54
+    ],
+    "aspectverhouding": 0.89
+  },
+  {
+    "label": "Raam",
+    "bounding_box": [
+      628,
+      22,
+      38,
+      32
+    ],
+    "aspectverhouding": 1.19
+  },
+  {
+    "label": "Deur",
+    "bounding_box": [
+      2043,
+      9,
+      24,
+      259
+    ],
+    "aspectverhouding": 0.09
+  },
+  {
+    "label": "Deur",
+    "bounding_box": [
+      2043,
+      9,
+      24,
+      259
+    ],
+    "aspectverhouding": 0.09
+  },
+  {
+    "label": "Deur",
+    "bounding_box": [
+      12,
+      9,
+      24,
+      259
+    ],
+    "aspectverhouding": 0.09
+  },
+  {
+    "label": "Huis",
+    "bounding_box": [
+      786,
+      7,
+      1283,
+      656
+    ],
+    "aspectverhouding": 1.96
+  },
+  {
+    "label": "Raam",
+    "bounding_box": [
+      1718,
+      595,
+      25,
+      49
+    ],
+    "aspectverhouding": 0.51
+  },
+  {
+    "label": "Raam",
+    "bounding_box": [
+      2019,
+      578,
+      45,
+      45
+    ],
+    "aspectverhouding": 1.0
+  },
+  {
+    "label": "Raam",
+    "bounding_box": [
+      2019,
+      517,
+      45,
+      46
+    ],
+    "aspectverhouding": 0.98
+  },
+  {
+    "label": "Raam",
+    "bounding_box": [
+      682,
+      0,
+      37,
+      34
+    ],
+    "aspectverhouding": 1.09
+  },
+  {
+    "label": "Raam",
+    "bounding_box": [
+      504,
+      577,
+      61,
+      67
+    ],
+    "aspectverhouding": 0.91
+  },
+  {
+    "label": "Raam",
+    "bounding_box": [
+      259,
+      340,
+      46,
+      90
+    ],
+    "aspectverhouding": 0.51
+  },
+  {
+    "label": "Raam",
+    "bounding_box": [
+      265,
+      368,
+      30,
+      56
+    ],
+    "aspectverhouding": 0.54
+  },
+  {
+    "label": "Raam",
+    "bounding_box": [
+      313,
+      302,
+      50,
+      60
+    ],
+    "aspectverhouding": 0.83
+  }
+]

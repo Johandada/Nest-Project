@@ -1,0 +1,162 @@
+[
+  {
+    "label": "Raam",
+    "bounding_box": [
+      610,
+      581,
+      36,
+      33
+    ],
+    "aspectverhouding": 1.09
+  },
+  {
+    "label": "Deur",
+    "bounding_box": [
+      358,
+      512,
+      75,
+      155
+    ],
+    "aspectverhouding": 0.48
+  },
+  {
+    "label": "Raam",
+    "bounding_box": [
+      18,
+      426,
+      41,
+      42
+    ],
+    "aspectverhouding": 0.98
+  },
+  {
+    "label": "Deur",
+    "bounding_box": [
+      86,
+      261,
+      64,
+      160
+    ],
+    "aspectverhouding": 0.4
+  },
+  {
+    "label": "Deur",
+    "bounding_box": [
+      367,
+      163,
+      51,
+      316
+    ],
+    "aspectverhouding": 0.16
+  },
+  {
+    "label": "Deur",
+    "bounding_box": [
+      374,
+      343,
+      40,
+      131
+    ],
+    "aspectverhouding": 0.31
+  },
+  {
+    "label": "Deur",
+    "bounding_box": [
+      370,
+      341,
+      44,
+      133
+    ],
+    "aspectverhouding": 0.33
+  },
+  {
+    "label": "Deur",
+    "bounding_box": [
+      368,
+      337,
+      50,
+      142
+    ],
+    "aspectverhouding": 0.35
+  },
+  {
+    "label": "Deur",
+    "bounding_box": [
+      374,
+      171,
+      40,
+      128
+    ],
+    "aspectverhouding": 0.31
+  },
+  {
+    "label": "Deur",
+    "bounding_box": [
+      370,
+      166,
+      44,
+      133
+    ],
+    "aspectverhouding": 0.33
+  },
+  {
+    "label": "Raam",
+    "bounding_box": [
+      157,
+      61,
+      69,
+      66
+    ],
+    "aspectverhouding": 1.05
+  },
+  {
+    "label": "Raam",
+    "bounding_box": [
+      104,
+      56,
+      36,
+      33
+    ],
+    "aspectverhouding": 1.09
+  },
+  {
+    "label": "Huis",
+    "bounding_box": [
+      81,
+      6,
+      636,
+      661
+    ],
+    "aspectverhouding": 0.96
+  },
+  {
+    "label": "Raam",
+    "bounding_box": [
+      676,
+      582,
+      27,
+      51
+    ],
+    "aspectverhouding": 0.53
+  },
+  {
+    "label": "Raam",
+    "bounding_box": [
+      112,
+      0,
+      70,
+      64
+    ],
+    "aspectverhouding": 1.09
+  },
+  {
+    "label": "Raam",
+    "bounding_box": [
+      48,
+      0,
+      68,
+      63
+    ],
+    "aspectverhouding": 1.08
+  }
+]

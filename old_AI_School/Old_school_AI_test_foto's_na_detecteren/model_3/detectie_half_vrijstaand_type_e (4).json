@@ -1,0 +1,119 @@
+[
+  {
+    "label": "Deur",
+    "bounding_box": [
+      672,
+      607,
+      133,
+      139
+    ]
+  },
+  {
+    "label": "Deur",
+    "bounding_box": [
+      672,
+      607,
+      132,
+      131
+    ]
+  },
+  {
+    "label": "Deur",
+    "bounding_box": [
+      406,
+      607,
+      134,
+      139
+    ]
+  },
+  {
+    "label": "Deur",
+    "bounding_box": [
+      288,
+      607,
+      45,
+      139
+    ]
+  },
+  {
+    "label": "Deur",
+    "bounding_box": [
+      870,
+      560,
+      106,
+      186
+    ]
+  },
+  {
+    "label": "Raam",
+    "bounding_box": [
+      921,
+      680,
+      52,
+      52
+    ]
+  },
+  {
+    "label": "Raam",
+    "bounding_box": [
+      921,
+      617,
+      52,
+      63
+    ]
+  },
+  {
+    "label": "Raam",
+    "bounding_box": [
+      881,
+      435,
+      38,
+      78
+    ]
+  },
+  {
+    "label": "Raam",
+    "bounding_box": [
+      291,
+      435,
+      36,
+      78
+    ]
+  },
+  {
+    "label": "Deur",
+    "bounding_box": [
+      646,
+      260,
+      37,
+      253
+    ]
+  },
+  {
+    "label": "Deur",
+    "bounding_box": [
+      527,
+      260,
+      37,
+      253
+    ]
+  },
+  {
+    "label": "Huis",
+    "bounding_box": [
+      0,
+      0,
+      1201,
+      746
+    ]
+  },
+  {
+    "label": "Raam",
+    "bounding_box": [
+      191,
+      0,
+      36,
+      30
+    ]
+  }
+]

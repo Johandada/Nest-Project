@@ -1,0 +1,29 @@
+[
+  {
+    "label": "Deur",
+    "bounding_box": [
+      0,
+      89,
+      50,
+      116
+    ]
+  },
+  {
+    "label": "Raam",
+    "bounding_box": [
+      84,
+      54,
+      45,
+      53
+    ]
+  },
+  {
+    "label": "Huis",
+    "bounding_box": [
+      0,
+      0,
+      717,
+      559
+    ]
+  }
+]
