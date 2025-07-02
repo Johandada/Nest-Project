@@ -7,7 +7,7 @@ import torch
 device = 'cuda' if torch.cuda.is_available() else 'cpu'
 
 # Laad het YOLOv8-model
-model = YOLO("Modellen/getrainde modellen/yolov8n_nest_50epochs.pt")
+model = YOLO("modellen/yolo/yolov8n_nest_50epochs.pt")
 
 
 def convert_image(image: Image.Image) -> Image.Image:
