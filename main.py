@@ -1,6 +1,6 @@
 import streamlit as st
 from PIL import Image
-from nestlogica import analyseer_nestlocaties
+from yolo_model.nestlogica import analyseer_nestlocaties
 
 
 def toon_header():
