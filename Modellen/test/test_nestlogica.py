@@ -48,7 +48,7 @@ def test_nestlocaties_wel_geschikt():
         "vleermuis": "foto's/vleermuis.png"
     }
 
-    model_path = "Modellen/getrainde modellen/yolov8n_nest_50epochs.pt"
+    model_path = "../getrainde modellen/yolov8n_nest_50epochs.pt"
     _, locaties = analyseer_nestlocaties(image, species, model_path, icon_paths)
 
     assert len(locaties) == 5
@@ -68,7 +68,7 @@ def test_nestlocaties_niet_geschikt():
         "vleermuis": "foto's/vleermuis.png"
     }
 
-    model_path = "Modellen/getrainde modellen/yolov8n_nest_50epochs.pt"
+    model_path = "../getrainde modellen/yolov8n_nest_50epochs.pt"
     _, locaties = analyseer_nestlocaties(image, species, model_path, icon_paths)
 
     assert len(locaties) == 0

@@ -1,6 +1,6 @@
 import streamlit as st
 from PIL import Image
-from yolo_model.nestlogica import analyseer_nestlocaties
+from Modellen.nestlogica import analyseer_nestlocaties
 
 
 
