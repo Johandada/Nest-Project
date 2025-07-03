@@ -3,5 +3,5 @@
   <component name="Black">
     <option name="sdkName" value="yoloenv" />
   </component>
-  <component name="ProjectRootManager" version="2" project-jdk-name="yoloenv" project-jdk-type="Python SDK" />
+  <component name="ProjectRootManager" version="2" project-jdk-name="mijnomgeving" project-jdk-type="Python SDK" />
 </project>

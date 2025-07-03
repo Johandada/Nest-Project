@@ -3,6 +3,7 @@ from PIL import Image
 from yolo_model.nestlogica import analyseer_nestlocaties
 
 
+
 def toon_header():
     """
         Toont de header van de Streamlit-app met projectlogo’s en introductietekst.
@@ -95,3 +96,5 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+    
