@@ -71,10 +71,7 @@ def voer_nestkast_analyse_uit(image, species):
     # Visualisatie van de output
     st.pyplot(fig)
 
-    # Toon coördinaten van de voorgestelde nestkasten
-    st.markdown(f"### Plaats de nestkasten voor **{species}** op de volgende locaties:")
-    for i, loc in enumerate(locaties, 1):
-        st.write(f"Nest {i}: x={loc['x']}, y={loc['y']} → hoogte ≈ {loc['hoogte_m']} m")
+
 
 
 def main():
